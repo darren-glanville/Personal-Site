@@ -27,9 +27,6 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->colors([
-                'primary' => '#6a46c4',
-            ])
             ->favicon(asset('img/fav.png'))
             ->brandLogo(asset('img/logo.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
