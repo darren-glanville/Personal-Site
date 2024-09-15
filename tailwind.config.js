@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
     presets: [preset],
-    plugins: [require("tailwindcss-animate")],
+    plugins: [require("tailwindcss-animated")],
     content: [
         "./app/Filament/**/*.php",
         "./resources/views/filament/**/*.blade.php",
