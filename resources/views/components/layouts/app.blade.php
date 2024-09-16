@@ -26,10 +26,20 @@
     </style>
 
     @filamentStyles
-    @vite('resources/css/app.css')
+    @vite('resources/sass/app.scss')
 </head>
 
 <body class="antialiased h-full flex flex-col">
+    @persist('background')
+        <div class="fixed w-6/12 right-0 h-screen overflow-hidden z-0 pointer-events-none">
+            @foreach (App\Models\Technology::all() as $tech)
+                <div class="background-icon w-16 h-16 opacity-0" style="color: {{ $tech->color }};">
+                    @svg($tech->icon, 'w-full h-full fill-current')
+                </div>
+            @endforeach
+        </div>
+    @endpersist
+
     {{-- Header --}}
     <header class="px-8 xl:px-16">
         <div class="py-8 xl:py-16">

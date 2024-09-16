@@ -1,18 +1,20 @@
 @php
     $items = [
-        'home' => 'Welcome',
-        'projects' => 'My Projects',
-        'about' => 'About me',
-        'contact' => 'Get in touch',
+        'home' => ['title' => 'Welcome', 'icon' => 'home'],
+        'projects' => ['title' => 'My Projects', 'icon' => 'beaker'],
+        'about' => ['title' => 'About me', 'icon' => 'user'],
+        'contact' => ['title' => 'Get in touch', 'icon' => 'hand-raised'],
     ];
 @endphp
 
 <nav class="flex flex-col sm:flex-row items-start sm:items-center gap-12">
     @if (!request()->routeIs('home'))
-        <span
-            class="hidden sm:block bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text font-extrabold text-transparent text-2xl sm:text-3xl">
-            Darren Glanville
-        </span>
+        <a href = "{{ route('home') }}" class="hidden sm:block" wire:navigate>
+            <span
+                class="bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text font-extrabold text-transparent text-2xl sm:text-3xl">
+                Darren Glanville
+            </span>
+        </a>
     @endif
 
     <div class="flex flex-wrap items-center gap-4">
@@ -23,7 +25,16 @@
                     $route),
                 'bg-primary-100 hover:bg-fuchsia-100 hover:text-fuchsia-500' => !request()->routeIs(
                     $route),
-            ]) wire:navigate>{{ $label }}</a>
+            ]) wire:navigate>
+                <span class="sm:hidden">
+                    @svg('heroicon-s-' . $label['icon'], 'w-6 h-6')
+                </span>
+
+                <span class="hidden sm:inline">
+                    {{ $label['title'] }}
+                </span>
+
+            </a>
         @endforeach
     </div>
 </nav>
