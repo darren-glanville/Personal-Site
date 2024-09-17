@@ -48,7 +48,7 @@
     </header>
 
     {{-- Main --}}
-    <main class="p-8 xl:p-16 flex-grow flex flex-col">
+    <main class="p-8 xl:p-16 mt-0 flex-grow flex flex-col z-10">
         {{ $slot }}
     </main>
 

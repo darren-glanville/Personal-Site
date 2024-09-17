@@ -1,4 +1,4 @@
-<div class="flex-grow">
+<div class="flex-grow flex flex-col justify-between">
     {{-- Image --}}
     <div class="flex flex-col sm:flex-row justify-center sm:justify-center gap-4 sm:gap-8 mx-auto max-w-3xl">
         <img src="{{ asset('img/darren.jpeg') }}"
@@ -10,7 +10,7 @@
                 Hi there, I'm
             </div>
 
-            <div class="">
+            <div class="mb-2">
                 <span
                     class="bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text text-4xl font-extrabold text-transparent sm:text-6xl animate-fade animate-once animate-duration-1000 animate-delay-500">
                     Darren Glanville
@@ -26,5 +26,25 @@
     </div>
 
     {{-- Text --}}
-    <div class="flex-grow">
+    <div
+        class="mt-12 bg-gray-200 p-8 rounded-lg flex flex-col sm:flex-row justify-between gap-8 sm:gap-16 max-w-7xl mx-auto animate-fade-up animate-once animate-delay-[1200ms] animate-ease-in-out">
+        <div class="text-center sm:text-left">
+            <h2 class="text-3xl text-gray-600 font-extrabold">
+                What I do
+            </h2>
+
+            <p class="text-gray-800 text-lg">This is what I currently work with, there is always more to learn.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-evenly sm:justify-end gap-6 sm:gap-4 max-w-4xl">
+            @foreach (App\Models\Technology::all() as $index => $tech)
+                <div class="flex gap-1 items-center text-primary-600 animate-fade animate-once animate-ease-in-out"
+                    style="animation-delay: {{ 1500 + 200 * $index }}ms">
+                    @svg($tech->icon, 'w-8 h-8 fill-current')
+
+                    {{ $tech->name }}
+                </div>
+            @endforeach
+        </div>
     </div>
+</div>
