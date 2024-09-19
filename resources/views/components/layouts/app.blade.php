@@ -42,7 +42,7 @@
 
     {{-- Header --}}
     <header class="px-8 xl:px-16">
-        <div class="py-8 xl:py-16 flex items-center justify-between gap-16">
+        <div class="py-8 xl:py-16 flex flex-col sm:flex-row sm:items-center justify-between gap-8 sm:gap-16">
             <x-nav />
             <x-links />
         </div>

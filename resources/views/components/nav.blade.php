@@ -17,17 +17,17 @@
         </a>
     @endif
 
-    <div class="flex flex-wrap items-center gap-4">
+    <div class="flex flex-wrap items-center gap-4 w-full">
         @foreach ($items as $route => $label)
             <a href="{{ route($route) }}" @class([
-                'px-3 py-2 text-primary-700 font-medium sm:text-lg rounded-lg transition-all',
+                'px-3 py-2 text-primary-700 font-medium sm:text-lg rounded-lg transition-all max-sm:flex-auto text-center',
                 'bg-primary-700 text-white hover:bg-primary-800 hover:text-white' => request()->routeIs(
                     $route),
                 'bg-primary-100 hover:bg-fuchsia-100 hover:text-fuchsia-500' => !request()->routeIs(
                     $route),
             ]) wire:navigate>
                 <span class="sm:hidden">
-                    @svg('heroicon-s-' . $label['icon'], 'w-6 h-6')
+                    @svg('heroicon-s-' . $label['icon'], 'w-6 h-6 mx-auto')
                 </span>
 
                 <span class="hidden sm:inline">
