@@ -5,13 +5,14 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TechnologyResource\Pages;
 use App\Filament\Resources\TechnologyResource\RelationManagers;
 use App\Models\Technology;
-use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Guava\FilamentIconPicker\Forms\IconPicker;
@@ -49,9 +50,22 @@ class TechnologyResource extends Resource
     {
         return $table
             ->columns([
-                // name
-                TextColumn::make('name')
+                Split::make([
+                    // icon
+                    IconColumn::make('icon')
+                        ->label('')
+                        ->icon(fn($state) => $state)
+                        ->width('1%')
+                        ->grow(false),
+                    // name
+                    TextColumn::make('name')
+                ])
             ])
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 4,
+            ])
+            ->paginated(false)
             ->reorderable('sort')
             ->defaultSort('sort')
             ->filters([
