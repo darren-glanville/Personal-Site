@@ -11,7 +11,7 @@
     @if (!request()->routeIs('home'))
         <a href = "{{ route('home') }}" class="hidden sm:block" wire:navigate>
             <span
-                class="bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text font-extrabold text-transparent text-2xl sm:text-3xl">
+                class="whitespace-nowrap bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text font-extrabold text-transparent text-2xl sm:text-3xl">
                 Darren Glanville
             </span>
         </a>
