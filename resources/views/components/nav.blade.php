@@ -9,7 +9,7 @@
 
 <nav class="flex flex-col sm:flex-row items-start sm:items-center gap-12">
     @if (!request()->routeIs('home'))
-        <a href = "{{ route('home') }}" class="hidden sm:block" wire:navigate>
+        <a href = "{{ route('home') }}" class="hidden lg:block" wire:navigate>
             <span
                 class="whitespace-nowrap bg-gradient-to-r from-primary-600 via-purple-600 to-fuchsia-500 bg-clip-text font-extrabold text-transparent text-2xl sm:text-3xl">
                 Darren Glanville

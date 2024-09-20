@@ -49,7 +49,7 @@
     </header>
 
     {{-- Main --}}
-    <main class="p-8 xl:p-16 !pt-0 flex-grow flex flex-col z-10">
+    <main class="p-8 xl:p-16 !pt-0 flex-grow flex flex-col z-10 max-md:pb-24">
         {{ $slot }}
     </main>
 
