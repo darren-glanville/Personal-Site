@@ -15,6 +15,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -55,8 +56,14 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                //
+                // name
+                TextColumn::make('name'),
+                // status
+                TextColumn::make('status')
+                    ->badge()
             ])
+            ->defaultSort('sort', 'asc')
+            ->reorderable('sort')
             ->filters([
                 //
             ])

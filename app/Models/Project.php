@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\ProjectStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Project extends Model
 {
@@ -32,8 +33,8 @@ class Project extends Model
 
     /* Relationships
      ------------------------------------------ */
-    public function technologies()
+    public function technologies(): BelongsToMany
     {
-        return $this->hasMany(Technology::class);
+        return $this->belongsToMany(Technology::class);
     }
 }

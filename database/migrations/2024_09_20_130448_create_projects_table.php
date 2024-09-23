@@ -20,8 +20,8 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('product_technology', function (Blueprint $table) {
-            $table->integer('product_id');
+        Schema::create('project_technology', function (Blueprint $table) {
+            $table->integer('project_id');
             $table->integer('technology_id');
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::dropIfExists('projects');
-        Schema::dropIfExists('product_technology');
+        Schema::dropIfExists('project_technology');
     }
 };
