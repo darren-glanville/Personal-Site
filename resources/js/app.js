@@ -1,5 +1,6 @@
 import "./bootstrap";
 import { gsap } from "gsap";
+import { Observer } from "tailwindcss-intersect";
 
 function drop(el) {
     // get width of the viewport
@@ -37,3 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.delayedCall(Math.random() * 4, drop, [icon]);
     });
 });
+
+// Run the observer
+Observer.start();
